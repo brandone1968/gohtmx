@@ -1,0 +1,8 @@
+docker run --name demo-mysql -e MYSQL_ROOT_PASSWORD=root -p 3333:3306 -d mysql:latest
+
+Per eseguire il container di mysql
+docker exec -it demo-mysql bash
+
+Per entrare in mysql da terminale
+mysql -uroot -proot
+use mysql

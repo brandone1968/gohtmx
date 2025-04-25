@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        {{template "headerFragment" . }}
+    </header>
+
+    <main>
+        {{template "mainContentFragment" . }}
+
+        <h3>Features</h3>
+        <ul>
+            {{range .Features}}
+                <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </main>
+
+    <footer>
+        Contact {{ .Name }} at <a href="mailto:contact@pippo.com">contact@pippo.com</a>
+    
+    <ul>
+        {{range $key, $value := .Socials}}
+            {{if eq $key "home"}}
+                {{continue}}
+            {{end}}
+            <li>
+                {{$key}}: <a href="{{$value}}">{{$value}}</a>
+            </li>
+        {{end}}
+    </ul>
+    </footer>
+</body>
+</html>
